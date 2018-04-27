@@ -7,6 +7,9 @@ x:Class="SimpleDataBinding.MainWindow"
   Title="Simple Data Binding Sample">
 
     <Window.Resources>
+    <!--Instantiate a SolidColorBrush object, set its Color property to RED, and call it MyBrush-->
+        <SolidColorBrush x:Key="MyBrush" Color="Red"/>
+    <!--Instantiate a Person object, set its PersonName property to Joe, and call it myDataSource-->
         <src:Person x:Key="myDataSource" PersonName="Joe"/>
         <Style TargetType="{x:Type Label}">
             <Setter Property="DockPanel.Dock" Value="Top"/>
@@ -22,9 +25,13 @@ x:Class="SimpleDataBinding.MainWindow"
             <Setter Property="Height" Value="25"/>
             <Setter Property="DockPanel.Dock" Value="Top"/>
             <Setter Property="Padding" Value="3"/>
+            <Setter Property="Foreground" Value="{StaticResource MyBrush}"/>
+        </Style>
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="DarkKhaki"/>
         </Style>
     </Window.Resources>
-    <Border Margin="5" BorderBrush="Aqua" BorderThickness="1" Padding="8" CornerRadius="3">
+    <Border Margin="5" BorderBrush="Aqua" BorderThickness="3" Padding="8" CornerRadius="5">
         <DockPanel Width="200" Height="100" Margin="35">
             <Label>Enter a Name:</Label>
             <TextBox>
