@@ -24,7 +24,6 @@ namespace SimpleDataBinding
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = this;
         }
     }
 }
