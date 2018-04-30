@@ -19,6 +19,7 @@ x:Class="SimpleDataBinding.MainWindow"
             <Setter Property="Width" Value="100"/>
             <Setter Property="Height" Value="25"/>
             <Setter Property="DockPanel.Dock" Value="Top"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="Width" Value="100"/>
@@ -28,17 +29,20 @@ x:Class="SimpleDataBinding.MainWindow"
             <Setter Property="Foreground" Value="{StaticResource MyBrush}"/>
         </Style>
         <Style TargetType="{x:Type Border}">
-            <Setter Property="Background" Value="DarkKhaki"/>
+            <Setter Property="Background" Value="Salmon"/>
         </Style>
     </Window.Resources>
-    <Border Margin="5" BorderBrush="Aqua" BorderThickness="3" Padding="8" CornerRadius="5">
+    <Border Margin="5"  BorderBrush="{StaticResource MyBrush}" BorderThickness="3" Padding="8" CornerRadius="5">
         <DockPanel Width="200" Height="100" Margin="35">
             <Label>Enter a Name:</Label>
-            <TextBox>
-                <TextBox.Text>
+            <TextBox FontWeight="ExtraBold" Text="{Binding Source={StaticResource myDataSource},
+                Path=PersonName, 
+                UpdateSourceTrigger=PropertyChanged}">
+                <!--Either way works-->
+                <!--<TextBox.Text>
                     <Binding Source="{StaticResource myDataSource}" Path="PersonName"
                    UpdateSourceTrigger="PropertyChanged"/>
-                </TextBox.Text>
+                </TextBox.Text>-->
             </TextBox>
 
             <Label>The name you entered:</Label>
